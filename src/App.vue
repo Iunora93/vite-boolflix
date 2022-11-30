@@ -17,13 +17,9 @@ export default {
     };
   },
   methods: {
-    saluta(data) {
-      console.log(data);
-    },
-  },
-  created() {
+    getMovies() {
    
-    axios
+      axios
       .get("https://api.themoviedb.org/3/search/movie", {
         params: {
           api_key: "e99307154c6dfb0b4750f6603256716d",
@@ -32,15 +28,19 @@ export default {
         },
       })
       .then((res) => {
-        this.store.movies = res.data.results;
+       this.store.movies = res.data.results;
       });
+    },
   },
-}
+  created(){
+    this.getMovies();
+  },
+};
 </script>
 
 <template>
   <div class="container">
-    <AppHeader  @cliccato="saluta"/>
+    <AppHeader  @cliccato="getMovies"/>
     <AppMain />
     <AppFooter />
   </div>
