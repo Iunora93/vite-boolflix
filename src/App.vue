@@ -30,6 +30,18 @@ export default {
       .then((res) => {
        this.store.movies = res.data.results;
       });
+      axios
+      .get("https://api.themoviedb.org/3/search/tv", {
+        params: {
+          api_key: "f7b76ba2478549a1bce670920b20220b",
+          query: this.store.searchText,
+          language: "it-IT",
+        },
+      })
+      .then((res) => {
+       this.store.series = res.data.results;
+       console.log(res.data.results)
+      });
     },
   },
   

@@ -18,6 +18,8 @@ export default {
       <div v-if="(movie.title != movie.original_title)">{{ movie.original_title }}</div>
       <div>{{ movie.original_language }}</div>
       <div>{{ movie.vote_average }}</div>
+      <img :src="`https://image.tmdb.org/t/p/w342${movie.poster_path
+}`" alt="">
     </li>
 
   </ul>
