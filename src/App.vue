@@ -22,8 +22,8 @@ export default {
       axios
       .get("https://api.themoviedb.org/3/search/movie", {
         params: {
-          api_key: "e99307154c6dfb0b4750f6603256716d",
-          query: "ritorno",
+          api_key: "f7b76ba2478549a1bce670920b20220b",
+          query: this.store.searchText,
           language: "it-IT",
         },
       })
@@ -32,9 +32,7 @@ export default {
       });
     },
   },
-  created(){
-    this.getMovies();
-  },
+  
 };
 </script>
 

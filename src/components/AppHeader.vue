@@ -1,12 +1,9 @@
 <script>
 import { store } from "../store.js";
-import SearchBar from '../components/SearchBar.vue'
+
 
 export default {
   name: 'AppHeader',
-  components:{
-    SearchBar,
-  },
   data() {
     return {
       store,
@@ -16,7 +13,10 @@ export default {
 </script>
 
 <template>
-  <SearchBar />
+  <form @submit.prevent="$emit('cliccato')" action="">
+    <input v-model="store.searchText" type="text" placeholder="Scrivi un film o una serie tv">
+    <button type="submit">Search</button>
+  </form>
 </template>
 
 <style>

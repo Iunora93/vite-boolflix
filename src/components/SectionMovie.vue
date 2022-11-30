@@ -14,9 +14,10 @@ export default {
 <template>
   <ul>
     <li v-for="movie in store.movies">
-      <div>{{ movie.original_title }}</div>
+      <div>{{ movie.title }}</div>
+      <div v-if="(movie.title != movie.original_title)">{{ movie.original_title }}</div>
       <div>{{ movie.original_language }}</div>
-      <div>{{ movie.popularity }}</div>
+      <div>{{ movie.vote_average }}</div>
     </li>
 
   </ul>
