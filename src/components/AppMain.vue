@@ -1,11 +1,15 @@
 <script>
+import SectionMovie from '../components/SectionMovie.vue'
 export default {
   name: 'AppMain',
+  components:{
+    SectionMovie,
+  },
 }
 </script>
 
 <template>
-  <h1></h1>
+  <SectionMovie />
 </template>
 
 <style>
