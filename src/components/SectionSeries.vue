@@ -30,7 +30,11 @@ export default {
       <div>{{ serie.name }}</div>
       <div v-if="(serie.name != serie.original_name)">{{ serie.original_name }}</div>
       <span :class="`fi fi-${getFlag(serie.original_language)}`"></span>
-      <div>{{ vote(serie) }}</div>
+      <div>
+        <i class="fa-solid fa-star" v-for="n in vote"></i>
+        <i class="fa-regular fa-star" v-for="n in 5 - vote"></i>
+        
+      </div>
       <img :src="`https://image.tmdb.org/t/p/w342${serie.poster_path}`" alt="">
     </li>
 
