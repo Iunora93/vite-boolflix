@@ -32,9 +32,8 @@ export default {
       <span :class="`fi fi-${getFlag(movie.original_language)}`"></span>
       
       <div>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-regular fa-star"></i>
-        {{ vote(movie) }}
+        <i class="fa-solid fa-star" v-for="n in vote(movie)"></i>
+        <i class="fa-regular fa-star" v-for="n in (5 - vote(movie))"></i>
       </div>   
       <img :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" alt="">      
     </li>
