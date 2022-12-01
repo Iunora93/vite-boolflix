@@ -17,12 +17,10 @@ export default {
         return "kr";
       } else return lang;
     },
-  },
-  computed: {
-    vote() {
-      return Math.ceil(this.movie.vote_average / 2);
+    vote(movie) {
+      return Math.ceil(movie.vote_average / 2);
     },
-  },
+  },  
 };
 </script>
 
@@ -34,7 +32,7 @@ export default {
       <span :class="`fi fi-${getFlag(movie.original_language)}`"></span>
       <i class="fa-solid fa-star"></i>
       <i class="fa-regular fa-star"></i>
-      <div>{{ movie.vote_average }}</div>   
+      <div>{{ vote(movie) }}</div>   
       <img :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" alt="">      
     </li>
 
