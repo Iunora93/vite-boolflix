@@ -1,22 +1,34 @@
 <script>
-import SectionMovie from '../components/SectionMovie.vue'
-import SectionSeries from '../components/SectionSeries.vue'
+import { store } from "../store.js";
+
+import AppCard from './AppCard.vue'
 
 export default {
   name: 'AppMain',
   components:{
-    SectionMovie,
-    SectionSeries,
+  
+    AppCard,
+  },
+  data() {
+    return {
+      store,
+    };
   },
 }
 </script>
 
 <template>
-  <h2>MOVIE</h2>
-  <SectionMovie />
-  <h2>SERIE</h2>
-  <SectionSeries />
+  <main>
+    
+    <AppCard :details="movie" v-for="movie in store.movies" />
+    
+    <AppCard :details="serie" v-for="serie in store.series" />
+  </main>
 </template>
 
-<style>
+<style lang="scss" scoped>
+main{
+  display: flex;
+  flex-wrap: wrap;
+}
 </style>
