@@ -1,5 +1,6 @@
 <script>
 import { store } from "../store.js";
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 export default {
   name: 'SectionMovie',
@@ -8,7 +9,21 @@ export default {
       store,
     };
   },
-}
+  methods: {
+    getFlag(lang) {
+      if (lang === "en") {
+        return "gb";
+      } else if (lang === "ko") {
+        return "kr";
+      } else return lang;
+    },
+  },
+  computed: {
+    vote() {
+      return Math.ceil(this.movie.vote_average / 2);
+    },
+  },
+};
 </script>
 
 <template>
@@ -16,10 +31,11 @@ export default {
     <li v-for="movie in store.movies">
       <div>{{ movie.title }}</div>
       <div v-if="(movie.title != movie.original_title)">{{ movie.original_title }}</div>
-      <div>{{ movie.original_language }}</div>
-      <div>{{ movie.vote_average }}</div>
-      <img :src="`https://image.tmdb.org/t/p/w342${movie.poster_path
-}`" alt="">
+      <span :class="`fi fi-${getFlag(movie.original_language)}`"></span>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-regular fa-star"></i>
+      <div>{{ movie.vote_average }}</div>   
+      <img :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" alt="">      
     </li>
 
   </ul>

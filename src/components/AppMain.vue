@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template>
-  
+  <h2>MOVIE</h2>
   <SectionMovie />
   <h2>SERIE</h2>
   <SectionSeries />

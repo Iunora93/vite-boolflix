@@ -50,7 +50,7 @@ export default {
 
 <template>
   <div class="container">
-    <AppHeader  @cliccato="getMovies"/>
+    <AppHeader  @search="getMovies"/>
     <AppMain />
     <AppFooter />
   </div>

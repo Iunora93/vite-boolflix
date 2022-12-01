@@ -13,7 +13,7 @@ export default {
 </script>
 
 <template>
-  <form @submit.prevent="$emit('cliccato')" action="">
+  <form @submit.prevent="$emit('search')" action="">
     <input v-model="store.searchText" type="text" placeholder="Scrivi un film o una serie tv">
     <button type="submit">Search</button>
   </form>
