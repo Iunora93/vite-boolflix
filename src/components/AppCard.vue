@@ -34,12 +34,16 @@ export default {
             <i class="fa-solid fa-star" v-for="n in vote(details)"></i>
             <i class="fa-regular fa-star" v-for="n in (5 - vote(details))"></i>        
           </li>
-          <div class="overview">
+          <div v-if="details.overview != ''" class="overview">
             <li>Overview: {{details.overview}}</li>
           </div>
         </ul>
     </div>
-    <img :src="`https://image.tmdb.org/t/p/w342${details.poster_path}`" alt="">    
+    <img v-if="details.poster_path !== null" 
+    :src="`https://image.tmdb.org/t/p/w342${details.poster_path}`" 
+    :alt="details.title">    
+    <img v-else :src="`https://via.placeholder.com/342x485/000?text=${details.title || details.name}`"
+    :alt="details.title">
   </div>
 </template>
 
@@ -48,7 +52,7 @@ export default {
   position: relative;
   width: 300px;
   height: auto;
-  margin: 50px 0 30px 0;
+  margin: 30px 0 30px 0;
   &:hover .list-container{
     display: block;
   }
@@ -62,7 +66,10 @@ export default {
     left: 0;
     border: 5px solid white;
     
-      
+    
+    ul::-webkit-scrollbar{
+      width: 0px;     
+     } 
     ul{
       transform: translateY(-50%);
       position: absolute;
@@ -71,9 +78,9 @@ export default {
       right: 0;
       padding: 10px;     
       list-style: none;
-      height: 100%;
+      max-height: 100%;
       overflow-y: auto;
-      overflow-y: hidden;
+      
       li{
         padding: 5px;
         text-align: center;

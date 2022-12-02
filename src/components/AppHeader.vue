@@ -32,7 +32,7 @@ header{
     margin-right: 20px;
     border: none;
     border-radius: 5px;
-    padding: 10px;    
+    padding: 10px 50px 10px 10px;    
   }
   button{
     border: 2px solid white;
