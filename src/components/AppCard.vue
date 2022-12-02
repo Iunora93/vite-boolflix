@@ -34,8 +34,10 @@ export default {
             <i class="fa-solid fa-star" v-for="n in vote(details)"></i>
             <i class="fa-regular fa-star" v-for="n in (5 - vote(details))"></i>        
           </li>
-          <li class="overview">Overview: {{details.overview}}</li>
-      </ul>
+          <div class="overview">
+            <li>Overview: {{details.overview}}</li>
+          </div>
+        </ul>
     </div>
     <img :src="`https://image.tmdb.org/t/p/w342${details.poster_path}`" alt="">    
   </div>
@@ -84,6 +86,7 @@ export default {
       }
       .overview{
           font-size: 12px;
+          max-height: 100%;
         }
     }
   }
