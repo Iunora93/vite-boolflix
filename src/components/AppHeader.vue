@@ -13,11 +13,19 @@ export default {
 </script>
 
 <template>
-  <form @submit.prevent="$emit('search')" action="">
-    <input v-model="store.searchText" type="text" placeholder="Scrivi un film o una serie tv">
-    <button type="submit">Search</button>
-  </form>
+  <header>
+    <img src="../assets/BOOLFLIX LOGO.png" alt="">
+    <form @submit.prevent="$emit('search')" action="">
+      <input v-model="store.searchText" type="text" placeholder="Scrivi un film o una serie tv">
+      <button type="submit">Search</button>
+    </form>
+  </header>
 </template>
 
-<style>
+<style lang="scss" scoped>
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 </style>

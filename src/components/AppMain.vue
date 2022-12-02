@@ -30,5 +30,6 @@ export default {
 main{
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 </style>

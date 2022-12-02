@@ -57,6 +57,7 @@ export default {
     position: absolute;
     bottom: 0;
     left: 0;
+    border: 5px solid white;
       
     ul{
       transform: translateY(-50%);
@@ -70,7 +71,9 @@ export default {
         padding: 5px;
         text-align: center;
         color: white;
-        
+        i{
+          color: yellow;
+        }
       }
     }
   }
