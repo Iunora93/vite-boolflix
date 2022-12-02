@@ -27,5 +27,20 @@ header{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 50px;
+  input{
+    margin-right: 20px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;    
+  }
+  button{
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: black;   
+    color: white; 
+  }
 }
+
 </style>
