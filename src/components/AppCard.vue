@@ -27,17 +27,17 @@ export default {
   <div class="series-card">
     <div class="list-container">
       <ul>
-        <li> <h4>{{details.name}}{{details.title}}</h4></li>
-          <li v-if="(details.name != details.original_name || details.title != details.original_title)">{{ details.original_name }}{{details.original_title}}</li>
+        <li> <span>Titolo: {{details.name}}{{details.title}}</span></li>
+          <li v-if="(details.name != details.original_name || details.title != details.original_title)">Titolo originale: {{ details.original_name }}{{details.original_title}}</li>
           <li><span :class="`fi fi-${getFlag(details.original_language)}`"></span></li>
-          <li>
+          <li>Voto: 
             <i class="fa-solid fa-star" v-for="n in vote(details)"></i>
             <i class="fa-regular fa-star" v-for="n in (5 - vote(details))"></i>        
           </li>
+          <li class="overview">Overview: {{details.overview}}</li>
       </ul>
     </div>
-    <img :src="`https://image.tmdb.org/t/p/w342${details.poster_path}`" alt="">
-    
+    <img :src="`https://image.tmdb.org/t/p/w342${details.poster_path}`" alt="">    
   </div>
 </template>
 
@@ -46,6 +46,7 @@ export default {
   position: relative;
   width: 300px;
   height: auto;
+  margin: 50px 0 30px 0;
   &:hover .list-container{
     display: block;
   }
@@ -58,6 +59,7 @@ export default {
     bottom: 0;
     left: 0;
     border: 5px solid white;
+    
       
     ul{
       transform: translateY(-50%);
@@ -65,16 +67,24 @@ export default {
       top: 50%;
       left: 0;
       right: 0;
-      padding: 20px;     
+      padding: 10px;     
       list-style: none;
+      height: 100%;
+      overflow-y: auto;
+      overflow-y: hidden;
       li{
         padding: 5px;
         text-align: center;
-        color: white;
+        color: white; 
+        font-size: 14px;       
         i{
           color: yellow;
         }
+        
       }
+      .overview{
+          font-size: 12px;
+        }
     }
   }
   img{
